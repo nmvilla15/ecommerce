@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tts.ecommerce.model.Product;
 import com.tts.ecommerce.service.ProductService;
+import com.tts.ecommerce.service.UserService;
 
 @Controller
 public class ProductController {
 	
 	@Autowired
 	ProductService productService;
+	
+	@Autowired
+    UserService userService;
 	
 	@GetMapping("/product/{id}")
 	public String show(@PathVariable int id, Model model) {

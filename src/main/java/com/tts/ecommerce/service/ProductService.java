@@ -30,14 +30,6 @@ public class ProductService {
 		return productRepository.findDistinctCategories();
 	}
 	
-	public void save(Product product) {
-		productRepository.save(product);
-	}
-	
-	public void deleteById(long id) {
-		productRepository.deleteById(id);
-	}
-	
 	public List<Product> findByBrandAndOrCategory(String brand, String category) {
 		if (category == null && brand == null)
 			return productRepository.findAll();
@@ -47,6 +39,14 @@ public class ProductService {
 			return productRepository.findByCategory(category);
 		else
 			return productRepository.findByBrandAndCategory(brand, category);
+	}
+	
+	public void save(Product product) {
+		productRepository.save(product);
+	}
+	
+	public void deleteById(long id) {
+		productRepository.deleteById(id);
 	}
 
 	

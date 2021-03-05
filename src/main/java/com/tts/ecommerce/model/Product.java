@@ -1,6 +1,5 @@
 package com.tts.ecommerce.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,11 +19,11 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "user_id")
 	private Long id;
 	
 	private int quantity;
-	private double price;
+	private float price;
+	
 	private String description;
 	private String name;
 	private String brand;

@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.tts.ecommerce.model.Product;
 
-public interface ProductRepository extends CrudRepository<Product, Long> {
+public interface ProductRepository extends CrudRepository <Product, Long> {
 	List<Product> findAll();
 	Product findById(long id);
 	List<Product> findByBrand(String brand);
