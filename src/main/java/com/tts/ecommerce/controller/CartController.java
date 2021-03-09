@@ -5,10 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,6 +29,9 @@ public class CartController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Value("${STRIPE_PUBLIC_KEY}")
+    private String stripePublicKey;
 	
 	@ModelAttribute("loggedInUser")
 	public User loggedInUser() {
@@ -57,16 +63,16 @@ public class CartController {
         return "cart";
     }
 	
-	@PostMapping("/cart/update")
+	@PatchMapping("/cart")
 	public String updateQuantities(@RequestParam long[] id, @RequestParam int[] quantity) {
 	    for(int i = 0; i < id.length; i++) {
-	        Product p=productService.findById(id[i]);
+	        Product p = productService.findById(id[i]);
 	        setQuantity(p, quantity[i]);
 	    }
 	return "cart";
 	}
 	
-	@PostMapping("/cart/remove")
+	@DeleteMapping("/cart")
 	    public String removeFromCart(@RequestParam long id) {
 	    Product p = productService.findById(id);
 	    setQuantity(p, 0);

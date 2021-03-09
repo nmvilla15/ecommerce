@@ -17,7 +17,7 @@ public interface ProductRepository extends CrudRepository <Product, Long> {
 	@Query("SELECT DISTINCT p.brand FROM Product p")
 	List<String> findDistinctBrands();
 	
-	@Query("SELECT DISTINCT p.brand FROM Product p")
+	@Query("SELECT DISTINCT p.category FROM Product p")
 	List<String> findDistinctCategories();
 
 }

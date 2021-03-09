@@ -2,6 +2,8 @@ package com.tts.ecommerce.model;
 
 import java.util.Collection;
 import java.util.Map;
+
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
