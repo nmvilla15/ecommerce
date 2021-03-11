@@ -23,6 +23,7 @@ public class User implements UserDetails {
 
     @NotEmpty
     String username;
+    
     @NotEmpty
     String password;
 
@@ -33,6 +34,10 @@ public class User implements UserDetails {
         this.username = username;
         this.password = password;
         this.cart = cart;
+    }
+    
+    public User() {
+
     }
 
     public Long getId() {
@@ -88,10 +93,6 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public User() {
-
     }
 	
 }

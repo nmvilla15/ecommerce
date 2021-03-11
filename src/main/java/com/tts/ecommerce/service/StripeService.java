@@ -21,7 +21,7 @@ import com.tts.ecommerce.model.ChargeRequest;
 @Service
 public class StripeService {
 
-    @Value("${STRIPE_SECRET_KEY}")
+    @Value("${STRIPE_PUBLIC_KEY}")
     private String secretKey;
     
     @PostConstruct

@@ -22,8 +22,8 @@ public class MainController {
 	@Autowired
 	ProductService productService;
 	
-	@Autowired
-    UserService userService;
+//	@Autowired
+//    UserService userService;
 		
 	@GetMapping("/")
 	public String main() {

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,9 +53,13 @@ public class CartController {
 	}
 	
 	@GetMapping("/cart")
-	public String showCart() {
-		return "/cart";
-	}
+    public String showCart(Model model) {
+        model.addAttribute("amount", 100);
+        model.addAttribute("stripePublicKey", stripePublicKey);
+        
+        System.out.println(model.getAttribute("stripePublicKey"));
+        return "cart";
+    }
 	
 	@PostMapping("/cart")
     public String addToCart(@RequestParam long id) {

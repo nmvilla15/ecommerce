@@ -20,13 +20,13 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 	
-	@Autowired
-    UserService userService;
+//	@Autowired
+//    UserService userService;
 	
 	@GetMapping("/product/{id}")
 	public String show(@PathVariable int id, Model model) {
 		Product product = productService.findById(id);
-		model.addAttribute(product);
+		model.addAttribute("product", product);
 		return "product";
 	}
 	
